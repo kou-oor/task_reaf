@@ -63,4 +63,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'nokogiri', '1.12.5'
 gem 'slim-rails', '3.1.3'
 gem 'html2slim'
-gem 'bootstrap'
+gem 'bootstrap', '~> 4.6'
