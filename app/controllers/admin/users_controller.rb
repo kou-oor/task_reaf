@@ -46,7 +46,9 @@ class Admin::UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :admin, :password, :password_confirmation)
   end
-
+  # 管理者以外の利用を禁止するフィルタ
+  # これで、ユーザー管理機能は管理権限を持っているユーザーだけが利用できるようになる
+  # 管理者権限がないのならroot_urlに飛ばすという意味
   def require_admin
     redirect_to root_url unless current_user.admin?
   end
