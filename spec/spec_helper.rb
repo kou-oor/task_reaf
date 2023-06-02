@@ -15,7 +15,16 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+require 'capybara/rspec' # capybaraを扱うために必要な機能を読み込むための記述
+
 RSpec.configure do |config|
+  # 下のconfigはSystemSpecを実行するドライバの設定をします。
+  # ドライバとは、Capybaraを使ったテスト/Specにおいて、ブラウザ相当の機能を利用するために必要なプログラムのことです。
+  # 今回SystemSpecでは、処理が高速のことから、常にブラウザにHeadless Chromeを使うことにする
+  config.before(:each, type: :system) do
+    driven_by :selenium_chrome_headless
+  end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
